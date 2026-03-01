@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vanta</title>
+    <script type="module" src="/src/main.ts" defer></script>
+  </head>
+
+  <body>
+    <div class="app-bg" id="bg1"></div>
+    <div class="app-bg" id="bg2"></div>
+    <div class="app" id="app">
+      <aside class="sidebar">
+        <div class="brand">Vanta</div>
+        <div class="actions">
+          <button type="button" class="action-btn" id="add-game">Add</button>
+          <button type="button" class="action-btn" id="edit-game" disabled>Edit</button>
+          <button type="button" class="action-btn" id="delete-game" disabled>Delete</button>
+        </div>
+        <button type="button" class="settings-btn" id="open-settings">Settings</button>
+        <div class="section-title">Games</div>
+        <nav class="game-list" id="game-list"></nav>
+      </aside>
+
+      <main class="main">
+        <section class="hero" id="hero">
+          <div class="hero-overlay"></div>@@
+          <div class="hero-content">
+            <div class="game-title" id="game-title">Select a game</div>
+            <div class="game-meta" id="game-meta"></div>
+
+            <div class="hero-actions">
+              <button type="button" class="primary-btn" id="launch-game" disabled>Launch</button>
+            </div>
+
+            <section class="library">
+              <div class="library-title">Library</div>
+              <div class="library-grid" id="library-grid"></div>
+            </section>
+
+            <div class="status" id="status"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal" id="editor-modal" aria-hidden="true">
+      <div class="modal-backdrop" id="editor-backdrop"></div>
+      <div class="modal-panel editor-panel" role="dialog" aria-modal="true">
+        <div class="modal-title" id="editor-title">Game</div>
+
+        <form class="editor" id="editor" autocomplete="off">
+          <div class="editor-row">
+            <label class="editor-label" for="title">Title</label>
+            <input id="title" name="title" />
+          </div>
+
+          <div class="editor-row">
+            <label class="editor-label" for="platform">Platform</label>
+            <select id="platform" name="platform">
+              <option value="manual">manual</option>
+              <option value="steam">steam</option>
+              <option value="epic">epic</option>
+            </select>
+          </div>
+
+          <div class="editor-row">
+            <label class="editor-label" for="appId">AppID</label>
+            <input id="appId" name="appId" />
+          </div>
+
+          <div class="editor-row">
+            <label class="editor-label" for="exePath">Exe</label>
+            <div class="picker">
+              <input id="exePath" name="exePath" readonly />
+              <button type="button" class="picker-btn" id="pick-exe">Browse</button>
+            </div>
+          </div>
+
+          <div class="editor-row">
+            <label class="editor-label" for="localImage">Local image</label>
+            <div class="picker">
+              <input id="localImage" name="localImage" readonly />
+              <button type="button" class="picker-btn" id="pick-image">Browse</button>
+            </div>
+          </div>
+
+          <div class="editor-actions">
+            <button type="submit" class="primary-btn" id="save-game" disabled>Save</button>
+            <button type="button" class="secondary-btn" id="cancel-edit" disabled>Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="settings-modal" aria-hidden="true">
+      <div class="modal-backdrop" id="settings-backdrop"></div>
+      <div class="modal-panel" role="dialog" aria-modal="true">
+        <div class="modal-title">Settings</div>
+
+        <div class="modal-row">
+          <label class="editor-label" for="cardSize">Card size</label>
+          <select id="cardSize" name="cardSize">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="secondary-btn" id="close-settings">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="context-menu" id="game-menu" aria-hidden="true">
+      <button type="button" class="context-item" id="menu-launch">Launch</button>
+      <button type="button" class="context-item" id="menu-edit">Edit</button>
+      <button type="button" class="context-item" id="menu-delete">Delete</button>
+    </div>
+  </body>
+</html>
